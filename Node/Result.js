@@ -17,9 +17,9 @@ app.use(express.json())
 
 
 // console.log("INR is " ,INR, "money is", money)
-app.get('/hi',async (req, res) => {
-    res.status(200).send('hi from server')
-})
+// app.get('/hi',async (req, res) => {
+//     res.status(200).send('hi from server')
+// })
 app.post('/', async (req, res) => {
     console.log(req.body)
     const INR = req.body.INR
