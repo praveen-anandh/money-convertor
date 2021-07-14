@@ -4,6 +4,8 @@ import axios from 'axios'
 import moneysvg from './saco.svg'
 function App() {
   
+
+  const baseURI = 'http://localhost:3008/'
  
 
   const [INR, handleINR] = useState(0)
@@ -23,7 +25,7 @@ function App() {
   const getCovertedValue = async() => {
     console.log("axios")
     const data = {"INR" : INR, "money" : money}
-    const response = await axios.post('http://localhost:3008/', data)
+    const response = await axios.post(baseURI, data)
     let temp = (response.data.value)
     handleConvert(temp)
   }
