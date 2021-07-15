@@ -49,8 +49,8 @@ function App() {
   return (
     <div className = "main"> 
       <div>
+      <img src = {moneysvg} height = {75}alt = "money"/>
        <h1> Welcome to Money Convertor </h1>
-       <img src = {moneysvg} height = {75}alt = "money"/>
        <div>
        <label> Enter Value </label>
        <input type = "text"  className = "input" placeholder = "Enter Indian Money to be converted" ref={ref}
