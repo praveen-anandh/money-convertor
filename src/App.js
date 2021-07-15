@@ -1,20 +1,30 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useRef,useEffect} from 'react'
 import './App.css'
 import axios from 'axios'
 import moneysvg from './saco.svg'
+import Swal from 'sweetalert2'
+
 function App() {
   
+
+  const ref = useRef(null)
 
   const baseURI = 'http://localhost:3008/'
  
 
-  const [INR, handleINR] = useState(0)
+  const [INR, handleINR] = useState('')
   const [money,handleMoney] = useState('euro')
   // eslint-disable-next-line 
   const [converted,handleConvert] = useState(0)
 
   const changeINR = (e) => {
+    if( isNaN (e.target.value )) {
+      handleINR('')
+      Swal.fire('Money can only be a number :-(')
+    }
+    else {
     handleINR(e.target.value)
+    }
   }
 
 
@@ -31,9 +41,9 @@ function App() {
   }
 
 
-  // useEffect (() => {
-  //   axios.get('http://localhost:3008/hi').then(res => console.log(res.data))
-  // },[])
+  useEffect (() => {
+    ref.current.focus()
+  },[])
 
 
   return (
@@ -43,7 +53,8 @@ function App() {
        <img src = {moneysvg} height = {75}alt = "money"/>
        <div>
        <label> Enter Value </label>
-       <input type = "text"  className = "input" placeholder = "Enter Indian Money to be converted" value = {INR} onChange = {changeINR}/>
+       <input type = "text"  className = "input" placeholder = "Enter Indian Money to be converted" ref={ref}
+       value = {INR} onChange = {changeINR}/>
        </div>
        <div>
          <label> Select Currency </label>
