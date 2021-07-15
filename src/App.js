@@ -53,7 +53,7 @@ function App() {
        <h1> Welcome to Money Convertor </h1>
        <div>
        <label> Enter Value </label>
-       <input type = "text"  className = "input" placeholder = "Enter amount to be converted" ref={ref}
+       <input type = "text"  className = "input" placeholder = "Enter amount to convert" ref={ref}
        value = {INR} onChange = {changeINR}/>
        </div>
        <div>
